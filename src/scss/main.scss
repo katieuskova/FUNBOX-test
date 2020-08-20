@@ -1,0 +1,235 @@
+@font-face {
+    font-family: 'Exo-2.0';
+    src: url('/src/fonts/Exo2-Thin.woff') format('woff'),
+        url('/src/fonts/Exo2-Thin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'TrebuchetMS';
+    font-weight: normal;
+    src: url('/src/fonts/TrebuchetMS.woff') format('woff'),
+}
+
+@font-face {
+    font-family: 'TrebuchetMS';
+    font-weight: bold;
+    src: url('/src/fonts/TrebuchetMS-Bold.woff') format('woff'),
+}
+
+@mixin tablet {
+    @media(max-width: (1170px)) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media(max-width: (768px)) {
+        @content;
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Exo-2.0';
+    color: #FFFFFF;
+    background-image: url('/src/img/backgroung.png');
+}
+
+.container {
+    max-width: 1140px;
+    margin: auto;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    text-shadow: 0px 1px 1px #000000;
+    margin-top: 36px;
+    margin-bottom: 25px;
+}
+
+.cat {
+    &__cards {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 35px;
+    }
+
+    &__card {
+        width: 320px;
+        height: 480px;
+        position: relative;
+        top: 4px;
+        left: 4px;
+        background-color: #FFFF;
+        color: black;
+        background-image: url('/src/img/cat.svg');
+        background-repeat: no-repeat;
+        background-position: 45% 170%;
+        border-radius: 11px;
+        clip-path: polygon(14.7% 0, 100% 0, 100% 100%, 0 100%, 0 9.7%);
+
+        &__box {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        &__border {
+            position: relative;
+            width: 328px;
+            height: 488px;
+            background-color: #2ea8e6;
+            border-radius: 14px;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 10%);
+            margin-bottom: 15px;
+        }
+
+        &__descr {
+            display: flex;
+            font-size: 13px;
+        }
+
+        &__descr a {
+            display: block;
+            width: 30px;
+            height: 15px;
+            color: #2ea8e6;
+            border-bottom: 1px dashed #2ea8e6;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        &__descr-hidden {
+            color: #fff;
+        }
+
+        &__descr-disabled {
+            color: #FFFF66;
+        }
+
+        &__weight {
+            font-family: 'TrebuchetMS';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            bottom: 11px;
+            right: 17px;
+            color: #FFF;
+            background-color: #1698D9;
+            border-radius: 40px;
+
+            span:first-child {
+                font-size: 42px;
+            }
+
+            span:last-child {
+                font-size: 20px;
+            }
+
+        }
+    }
+
+    &__card__content {
+        font-family: 'Trebuchet MS';
+        font-weight: normal;
+        padding: 20px 65px 40px 45px;
+
+        &__descr {
+            font-size: 16px;
+            color: #666666;
+        }
+
+        h2 {
+            font-size: 48px;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+
+        &__taste {
+            font-size: 24px;
+            font-weight: bold;
+            padding-bottom: 15px;
+        }
+
+        small {
+            display: block;
+            font-style: normal;
+            font-size: 14px;
+            line-height: 16px;
+            color: #666666;
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+    }
+}
+
+.selected {
+    background-color: #D91667;
+}
+
+.hidden {
+    display: none;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.dis-background {
+    background-color: #B3B3B3;
+}
+
+.selected-hover {
+    display: none;
+    color: #d91667;
+}
+
+@include tablet {
+    .cat {
+
+        &__cards {
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        &__card__box {
+            margin-right: 30px;
+            margin-bottom: 30px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@include phone {
+
+    .cat {
+        &__cards {
+            flex-direction: column;
+            padding: 0;
+        }
+
+        &__card__box {
+            margin-right: 0;
+        }
+    }
+}
