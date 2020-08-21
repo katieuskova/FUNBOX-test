@@ -18,7 +18,6 @@ cards.forEach(el => {
             let arr1 = Array.from(select[1].childNodes);
             let arr2 = Array.from(arr1[1].childNodes);
             let arr3 = Array.from(arr2[1].childNodes);
-            console.log(arr3);
             arr3[1].style.display = "none";
             arr3[3].style.display = "block";
     
